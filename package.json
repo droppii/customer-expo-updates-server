@@ -8,24 +8,31 @@
     "start": "PRIVATE_KEY_PATH=code-signing-keys/private-key.pem next start",
     "lint": "eslint common pages",
     "test": "jest",
-    "expo-publish": "./scripts/publish.sh -d 1/$(date +%s)",
+    "expo-publish": "./scripts/publish.sh -d 1.8.0/$(date +%s)",
     "expo-publish-rollback": "mktouch() { mkdir -p $(dirname $1) && touch $1; }; cd ../expo-updates-server && mktouch updates/1/$(date +%s)/rollback",
     "expo-publish-test": "./scripts/publish.sh -d test/$(date +%s)"
   },
   "dependencies": {
     "form-data": "^4.0.0",
+    "formidable": "^3.5.1",
     "mime": "^2.5.2",
+    "multer": "^1.4.5-lts.1",
     "next": "12",
+    "next-connect": "^1.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "structured-headers": "^0.4.1"
+    "structured-headers": "^0.4.1",
+    "unzipper": "^0.12.1"
   },
   "devDependencies": {
     "@expo/config": "^7.0.3",
     "@expo/multipart-body-parser": "^1.1.0",
+    "@types/formidable": "^3.4.5",
     "@types/jest": "^27.4.1",
     "@types/mime": "^2.0.3",
+    "@types/multer": "^1.4.11",
     "@types/react": "^18.0.1",
+    "@types/unzipper": "^0.10.9",
     "eslint": "^8.13.0",
     "eslint-config-universe": "^11.0.0-beta.0",
     "jest": "^27.5.1",

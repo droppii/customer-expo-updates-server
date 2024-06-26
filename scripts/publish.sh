@@ -5,10 +5,18 @@ do
     esac
 done
 
-cd ../expo-updates-client
+if [ ! -d "updates/$directory" ]; 
+then
+    echo "Creating directory..."
+    mkdir -p "updates/$directory"
+    continue
+fi
+
+cd ../customer-mobile
 npx expo export
-cd ../expo-updates-server
+cd ../customer-expo-updates-server
 rm -rf updates/$directory/
-cp -r ../expo-updates-client/dist/ updates/$directory
+cp -r ../customer-mobile/dist/ updates/$directory
 
 node ./scripts/exportClientExpoConfig.js > updates/$directory/expoConfig.json
+exit 0
